@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="gnprimary">
+    <ion-buttons (click)="modalDismiss()" slot="start">
+      <ion-icon name="arrow-back" size="large"></ion-icon>
+    </ion-buttons>
+    <ion-title>Search From Library</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-item *ngIf="message">
+    <ion-label>
+      <h2>{{message}}</h2>
+    </ion-label>
+  </ion-item>
+  <ion-searchbar #mySearchBar placeholder="Search flora" mode="ios" [(ngModel)]="libraryModel"
+    [debounce]="300"></ion-searchbar>
+  <ion-item button *ngFor="let library of libraries | filter: libraryModel; let i = index"
+    (click)="selectLibrary(library)">
+    <ion-avatar slot="start">
+      <ion-img class="image-placeholder" src="{{mainPhoto(library.tablePhotoUrl)}}" alt="photo"></ion-img>
+    </ion-avatar>
+    <div class="">
+      <ion-label>
+        <h2>{{library.common_name || library.species }}</h2>
+      </ion-label>
+      <ion-label>
+        <p>{{library.family}} also known as {{library.genus}}</p>
+      </ion-label>
+    </div>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="gnprimary">
+    <ion-buttons (click)="modalDismiss()" slot="start">
+      <ion-icon name="arrow-back" size="large"></ion-icon>
+    </ion-buttons>
+    <ion-title>Patrol: {{tripId}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <section class="mt-4">
+    <h4><b>Route</b></h4>
+    <app-openlayer-map [mapId]="'trip-' + tripId" mapsize="small-height" [coordinates]="coordinates"
+      withLine="true" [type]="isCurrentPatrol ? 'currentPatrol': 'open'" [withRecenterButton]="isCurrentPatrol"></app-openlayer-map>
+  </section>
+  <section style="display: flex;justify-content: space-between; padding-top: 16px;">
+    <ion-label>
+      <p>{{createdAt}}</p>
+      <p>Watershed: {{watershed || 'None'}} </p>
+      <p>Flora Encoded: {{floras.length}}</p>
+      <p>Fauna Encoded: {{faunas.length}}</p>
+      <p>Incident Encoded: {{incidents.length}}</p>
+      <p>Distance: {{distance.toFixed(2) }} Meters</p>
+      <p>Travel Hours: {{travelHours}}</p>
+      <p>Coordinates: {{coordinates.length}}</p>
+      <p>
+        <ion-badge color="{{getBadgeColor(statusClass)}}">{{statusLabel}}</ion-badge>
+      </p>
+    </ion-label>
+
+  </section>
+  <section class="mt-4">
+    <div class="flora-head-container">
+      <h4><b>Encoded Floras ({{floras.length}})</b></h4>
+      <ion-button *ngIf="isCurrentPatrol" color="gnprimary" (click)="addFlora()">
+        <ion-icon  name="add" size="large"></ion-icon>
+        Add Flora
+      </ion-button>
+    </div>
+    <ion-list *ngIf="floras.length">
+      <ion-item *ngFor="let flora of floras; let i = index" button (click)="viewFlora(flora)">
+        <ion-avatar slot="start">
+          <ion-img [src]="formImage(flora)"
+            alt="photo" class="image-placeholder"></ion-img>
+
+        </ion-avatar>
+        <div class="">
+          <ion-label>
+            <h2>{{generateFloraValidationName(flora.category_id) || '-----' }}</h2>
+          </ion-label>
+          <ion-label>
+            <p>{{flora.description || 'No Description'}}</p>
+          </ion-label>
+        </div>
+      </ion-item>
+    </ion-list>
+    <div class="flora-head-container">
+      <h4><b>Encoded Faunas ({{faunas.length}})</b></h4>
+      <ion-button *ngIf="isCurrentPatrol" color="gnprimary" (click)="addFlora()">
+        <ion-icon  name="add" size="large"></ion-icon>
+        Add Flora
+      </ion-button>
+    </div>
+    <ion-list *ngIf="faunas.length">
+      <ion-item *ngFor="let fauna of faunas; let i = index" button (click)="viewFlora(fauna)">
+        <ion-avatar slot="start">
+          <ion-img [src]="formImage(fauna)"
+            alt="photo" class="image-placeholder"></ion-img>
+
+        </ion-avatar>
+        <div class="">
+          <ion-label>
+            <h2>{{ generateFaunaValidatedName(fauna.category_id) || '-----' }}</h2>
+          </ion-label>
+          <ion-label>
+            <p>{{fauna.description || 'No Description'}}</p>
+          </ion-label>
+        </div>
+      </ion-item>
+    </ion-list>
+  </section>
+</ion-content>

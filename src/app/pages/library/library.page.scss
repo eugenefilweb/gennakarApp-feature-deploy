@@ -1,0 +1,24 @@
+.text-center{
+    text-align: center;
+}
+
+.font-Poppins-Bold{
+    font-family: 'Poppins-bold';
+}
+
+ion-segment-button {
+  --indicator-color:  var(--ion-color-gnprimary);
+}
+
+/* Material Design styles */
+ion-segment-button.md {
+  --color: #a1a1a1;
+  --color-checked:  var(--ion-color-gnprimary);
+}
+
+/* iOS styles */
+ion-segment-button.ios {
+  --color: var(--ion-color-gnprimary);
+  --color-checked: #fff;
+  --border-radius: 0;
+}

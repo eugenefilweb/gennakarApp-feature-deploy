@@ -1,0 +1,43 @@
+<div style="position: relative; height: 100%;">
+  <!-- {{*ngIf="withRecenterButton && dragOrZoom"}} -->
+  <ion-fab vertical="top" horizontal="start" >
+    <ion-fab-button color="light" (click)="reCenter()" size="small">
+      <ion-icon name="locate-sharp" size="small" color="gnprimary"></ion-icon>
+    </ion-fab-button>
+<!-- <ion-fab-button color="light" (click)="zoomIn()" size="small">
+      <ion-icon name="add-sharp" size="small" color="gnprimary"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="light" (click)="zoomOut()" size="small">
+      <ion-icon name="remove-sharp" size="small" color="gnprimary"></ion-icon>
+    </ion-fab-button> -->
+  </ion-fab>
+
+<!-- <ion-fab id="fab" slot="fixed" vertical="bottom" horizontal="end" *ngIf="current_patrol.status">
+    <ion-fab-button #box mode="md" (click)="modalReport()" size="small" color="gnprimary">
+      <ion-icon name="alert-circle" size="medium" color="gntertiary"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button #box mode="md" size="small" color="gnprimary">
+      <ion-icon name="leaf-sharp" size="medium" color="gntertiary"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button #box mode="md" size="small" color="gnprimary">
+      <ion-icon name="paw-sharp" size="medium" color="gntertiary"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+
+  <div id="{{mapId}}" ngClass="{{mapsize}}"></div>
+<!-- <ion-button class="re-center-btn" *ngIf="withRecenterButton && dragOrZoom" color="gnprimary" (click)="reCenter()"
+    shape="round"><ion-icon name="locate-sharp"></ion-icon> &nbsp;Re-Center</ion-button> -->
+
+  <ion-button 
+    id="stamp"
+    class="start-patrol-btn" 
+    color="danger" 
+    *ngIf="current_patrol.status"
+    shape="round"
+    (click)="endPatrol()">
+    <ion-icon name="pause-sharp"></ion-icon> 
+    &nbsp;&nbsp;{{timestamp}} | STOP
+  </ion-button>
+</div>
+
+

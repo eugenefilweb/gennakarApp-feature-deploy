@@ -1,0 +1,17 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom" >
+    <ion-tab-button class="route-btn" tab="patrol-history">
+      <ion-icon name="flag"></ion-icon>
+      <ion-label>Patrol</ion-label>
+    </ion-tab-button>
+    <ion-tab-button class="route-btn" tab="environtmental-incident-report">
+      <ion-icon name="newspaper"></ion-icon>
+      <ion-label>Report</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+  <ion-fab vertical="bottom" horizontal="center" translucent="true">
+    <ion-fab-button color="gnsecondary" [routerLink]="'/map'" size="large">
+      <ion-icon  name="navigate" color="light"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-tabs>

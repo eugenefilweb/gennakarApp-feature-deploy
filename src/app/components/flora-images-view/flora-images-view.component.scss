@@ -1,0 +1,130 @@
+.category{
+  display: flex;
+  flex-direction: column;
+}
+.row1{
+  display: flex;
+  flex-direction: row;
+}
+.card{
+  display: block;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(135deg, #398143 0%,#004634 100%);
+  box-shadow: rgb(0 70 52 / 40%) -5px 5px, rgb(0 70 52 / 30%) -10px 10px, rgb(0 70 52 / 20%) -15px 15px;
+}
+.card-image{
+  position: absolute;
+  top: 0;
+  opacity: 49%;
+  right: 0;
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000);
+  mask-image: linear-gradient(90deg, transparent, #000);
+}
+.w-11rem{
+  width: 11rem;
+}
+.overlay{
+  background-color: #004634;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 76%;
+}
+.image {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover;
+}
+.text-container {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+}
+ion-input {
+  fill: 'outline';
+}
+.swiper {
+ margin: 0;
+}
+
+.image-card-default{
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+.default{
+  width: 11rem;
+}
+.br-25 {
+  border-radius: 25px;
+}
+.p-left-top-26{
+  padding: 16px 0 0 16px;
+}
+.font-poppins-bold{
+  font-size: 18px;
+  font-family: 'Poppins-bold';
+}
+.border-bottom-semiblack{
+  border-bottom: 1px solid #00000026;
+}
+
+.detail-flora{
+  display: flex;
+  flex-direction: column;
+}
+ion-item{
+  --border-style: none;
+}
+.detail-container{
+  background-color: white;
+  margin: 12px;
+  position: relative;
+  z-index: 1;
+  padding: 15px 7px 7px 7px;
+
+}
+
+.image-container{
+  position: relative;
+}
+.flex-item{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.item-wrapper, h5, p{
+  margin: 0;
+}
+.item-wrapper {
+  // font-family: 'Poppins';
+}
+
+.swiper-image{
+  width: 100%;
+  height: 20rem;
+  box-shadow: none;
+  border-radius: 12px;
+  img{
+    object-fit: cover ;
+    width: 100% ;
+    height: 100%;
+    transition: 600ms all ease-in-out ;
+
+  }
+}
+
+.swiper-slide.swiper-slide-active {
+  transform: scale(1.1) !important;
+}

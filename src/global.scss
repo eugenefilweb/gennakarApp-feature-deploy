@@ -1,0 +1,242 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "bootstrap";
+
+/* google font  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;900&display=swap');
+
+// global.scss
+@import 'swiper/scss';
+@import 'swiper/scss/autoplay';
+@import 'swiper/scss/keyboard';
+@import 'swiper/scss/pagination';
+@import 'swiper/scss/scrollbar';
+@import 'swiper/scss/zoom';
+@import '@ionic/angular/css/ionic-swiper';
+@import 'swiper/scss/effect-fade';
+@import 'swiper/scss/effect-cube';
+
+
+@import 'mapbox-gl/dist/mapbox-gl.css';
+
+.padding-25 {
+  padding: 25px 25px;
+}
+
+// Poppins-black
+@font-face {
+  font-family: Poppins-black;
+  src: url(./assets/fonts/Poppins-Black.ttf);
+}
+
+// Poppins-blackItalic
+@font-face {
+  font-family: Poppins-blackItalic;
+  src: url(./assets/fonts/Poppins-BlackItalic.ttf);
+}
+
+// Poppins-Bold
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(./assets/fonts/Poppins-Bold.ttf);
+}
+
+// Poppins-BoldItalic
+@font-face {
+  font-family: Poppins-BoldItalic;
+  src: url(./assets/fonts/Poppins-BoldItalic.ttf);
+}
+
+// Poppins-ExtraBold
+@font-face {
+  font-family: Poppins-ExtraBold;
+  src: url(./assets/fonts/Poppins-ExtraBold.ttf);
+}
+
+// Poppins-ExtraBoldItalic
+@font-face {
+  font-family: Poppins-ExtraBoldItalic;
+  src: url(./assets/fonts/Poppins-ExtraBoldItalic.ttf);
+}
+
+// Poppins-ExtraLight
+@font-face {
+  font-family: Poppins-ExtraLight;
+  src: url(./assets/fonts/Poppins-ExtraLight.ttf);
+}
+
+// Poppins-ExtraLightItalic
+@font-face {
+  font-family: Poppins-ExtraLightItalic;
+  src: url(./assets/fonts/Poppins-ExtraLightItalic.ttf);
+}
+
+// Poppins-Italic
+@font-face {
+  font-family: Poppins-Italic;
+  src: url(./assets/fonts/Poppins-Italic.ttf);
+}
+
+// Poppins-Light
+@font-face {
+  font-family: Poppins-Light;
+  src: url(./assets/fonts/Poppins-Light.ttf);
+}
+
+// Poppins-LightItalic
+@font-face {
+  font-family: Poppins-LightItalic;
+  src: url(./assets/fonts/Poppins-LightItalic.ttf);
+}
+
+// Poppins-Medium
+@font-face {
+  font-family: Poppins-Medium;
+  src: url(./assets/fonts/Poppins-Medium.ttf);
+}
+
+// Poppins-MediumItalic
+@font-face {
+  font-family: Poppins-MediumItalic;
+  src: url(./assets/fonts/Poppins-MediumItalic.ttf);
+}
+
+// Poppins-Regular
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(./assets/fonts/Poppins-Regular.ttf);
+}
+
+// Poppins-SemiBold
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url(./assets/fonts/Poppins-SemiBold.ttf);
+}
+
+// Poppins-SemiBoldItalic
+@font-face {
+  font-family: Poppins-SemiBoldItalic;
+  src: url(./assets/fonts/Poppins-SemiBoldItalic.ttf);
+}
+
+// Poppins-Thin
+// @font-face {
+//   font-family: Poppins-Thin;
+//   src: url(./assets/fonts/Poppins-Thin.ttf);
+// }
+
+// // Poppins-ThinItalic
+// @font-face {
+//   font-family: Poppins-ThinItalic;
+//   src: url(./assets/fonts/Poppins-ThinItalic.ttf);
+// }
+
+
+@media only screen and (min-width: 1200px) {
+    table {
+      font-size: 1.2rem;
+      width: 80%;
+    }
+  }
+
+  /* Medium Table */
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    table {
+      font-size: 1rem;
+      width: 90%;
+    }
+  }
+
+  /* Small Table */
+  @media only screen and (max-width: 991px) {
+    table {
+      font-size: 0.8rem;
+      width: 100%;
+    }
+  }
+  
+  /* Mobile Large Table */
+  @media only screen and (min-width: 600px) and (max-width: 991px) {
+    table {
+      font-size: 1rem;
+      width: 90%;
+    }
+  }
+  
+  /* Mobile Small Table */
+  @media only screen and (max-width: 599px) {
+    table {
+      font-size: 0.8rem;
+      width: 100%;
+    }
+  }
+
+  .toastcustom{
+    // --width: 270px;
+    --button-color: #030303;
+    --height: 69px;
+    --border-radius: 5px;
+
+  }
+  
+
+  .custom-loading{
+    --background: var(--ion-color-gntertiary);
+    --spinner-color:  var(--ion-color-gnprimary);
+    color: var(--ion-color-gnprimary);
+  }
+
+.user-icon {
+  border-radius: 50px; 
+  margin-right: 0.5rem;
+}
+
+
+.btn-header-patrol {
+  margin-right: 10px !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+.modal-fullscreen {
+  --width: 100%;
+  --height: 100%;
+}
+
+
+.image-placeholder {
+  background-image: url('/assets/images/flora-default-img.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.text-center {
+  text-align: center;
+}

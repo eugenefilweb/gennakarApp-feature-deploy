@@ -1,0 +1,28 @@
+.forgotpassword{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 30vh;
+}
+
+.forgotpassword ion-label{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.email-input{
+    margin-bottom: 5rem;
+}
+
+ion-button{
+    height: 6vh;
+}
+
+.link-login{
+    color: blue;
+    --cursor: pointer;
+    font-size: 15px;
+}
+

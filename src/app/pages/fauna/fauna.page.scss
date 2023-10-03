@@ -1,0 +1,30 @@
+ion-header {
+    .toolbar {
+        padding: 10px;
+        display: flex;
+        font-family: 'Poppins-Regular';
+        ion-title {
+            text-align: center;
+        }
+    }
+}
+
+ion-content {
+    ion-tabs {
+        contain: none;
+        ion-tab-bar{
+            --background: var(--ion-color-gnprimary);
+    
+            ion-tab-button {
+                --color: var(--ion-color-gnprimary);
+                --color-selected: var(--ion-color-primary);
+            }
+            
+            .tab-selected{
+                border-bottom: 2px solid #004634;
+                color: var(--ion-color-gnprimary);
+            }
+        }
+       
+    }
+}

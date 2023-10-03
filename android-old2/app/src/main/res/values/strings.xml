@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Gawa</string>
+    <string name="title_activity_main">Gawa</string>
+    <string name="package_name">com.gawa.gennakar</string>
+    <string name="custom_url_scheme">com.gawa.gennakar</string>
+</resources>

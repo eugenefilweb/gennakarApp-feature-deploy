@@ -1,0 +1,34 @@
+ion-card {
+    border-radius: 0.45rem; 
+    border: 2px solid #e2e9d0; 
+    box-shadow: none;
+
+    ion-card-header {
+        --background: var(--ion-color-gntertiary);
+
+        ion-card-subtitle {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+
+            ion-badge {}
+            h3 {
+                margin: 0; 
+                font-size: 12px; 
+                font-weight: bold;
+            }
+        }
+    }
+    ion-card-content {
+        .card-content-container {
+            display: flex; 
+            align-items: flex-start; 
+            flex-direction: column; 
+            justify-content: center;
+            
+            ion-text {
+
+            }
+        }
+    }
+}

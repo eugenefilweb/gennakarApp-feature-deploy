@@ -1,0 +1,28 @@
+<div class="ion-page" id="main-content">
+    <!-- <app-header-nav title="Flora"></app-header-nav> -->
+
+    <app-menu-button></app-menu-button>
+    <ion-header class="ion-no-border">
+        <ion-toolbar class="toolbar">
+            <ion-title >Flora</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-tabs>
+            <ion-tab-bar slot="top" mode="ios" color="light">
+                <ion-tab-button tab="for-submitted" layout="icon-top">
+                    <ion-icon name="document-text-outline" size="large"></ion-icon>
+                    <ion-label>For Submission</ion-label>
+                </ion-tab-button>
+                <ion-tab-button tab="validation" layout="icon-top">
+                    <ion-icon name="sync" size="large"></ion-icon>
+                    <ion-label>Validation</ion-label>
+                </ion-tab-button>
+                <ion-tab-button tab="validated" layout="icon-top">
+                    <ion-icon name="checkmark-done-circle-outline" size="large"></ion-icon>
+                    <ion-label>Validated</ion-label>
+                </ion-tab-button>
+            </ion-tab-bar>
+        </ion-tabs>
+    </ion-content>
+</div>

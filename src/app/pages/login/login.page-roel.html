@@ -1,0 +1,36 @@
+<ion-content >
+    <div style="background-image: url('../../../assets/images/illustration-hornbill-at-pinanga.png');height: 100%;background-size: cover;background-repeat: no-repeat;">
+        <div class="frame" style="height: 78%">
+            <div class="header-title">
+                <div class="header-content">
+                    <ion-img *ngIf="!singleton.isLoading" class="img-logo" loading="lazy" src="{{singleton.settings.iconUrl}}" alt="Icon"></ion-img>
+                    <h3 class="header-main-text">Welcome to <span style="color: #91A563">{{singleton.settings.app_name}}</span>!</h3>
+                    <p class="header-sub-text">General Nakar Automatic Tracking & Watershed Patrol App</p>
+                </div>
+                <div class="form">
+                    <div class="input-wrapper">
+                        <ion-label>Username or Email</ion-label>
+                        <ion-input class="input-field"  autocomplete="off" type="text" name="username" fill="outline" [(ngModel)]="postData.username"  placeholder ="Email@gmail.com">
+                            <ion-icon color="medium" name="person" class="m5"></ion-icon>
+                        </ion-input>
+                    </div>
+                    <div class="input-wrapper">
+                        <ion-label>Password</ion-label>
+                        <ion-input class="input-field" inputmode="numeric" autocomplete="off" type="password" name="password" fill="outline" [(ngModel)]="postData.password"  placeholder = "Password" autocomplete="admin@admin.com">
+                            <ion-icon color="medium" name="lock-closed" class="m5"></ion-icon>
+                        </ion-input>
+                        <div class="align-item">
+                            <ion-checkbox checked="true" style="margin-right: 5px;" color="gnprimary" slot="start"></ion-checkbox>
+                            <span>Remember me</span>
+                        </div>
+                    </div>
+                    <ion-button (click)="loginAction()" expand="block" shape="round" color="gnprimary">
+                        LOG IN
+                    </ion-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+
+

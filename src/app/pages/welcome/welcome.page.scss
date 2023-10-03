@@ -1,0 +1,41 @@
+.wl-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100% ;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+}
+
+.wl-text-center {
+    text-align: center;
+}
+
+.wl-font-36{
+    font-size: 36px;
+}
+
+.wl-font-16{
+    font-size: 16px;
+}
+
+.wl-font-poppins{
+    font-family: 'Poppins-bold';
+}
+.mbttm5{
+    margin-bottom: 2rem;
+}
+.wl-color-gnprimary{
+    color: #004634;
+}
+.wl-color-gnsecondary{
+    color: #91a563;
+}
+.wl-image-container{
+    
+}
+.wl-position-bottom{
+    position: absolute;
+    bottom: 0%;
+}

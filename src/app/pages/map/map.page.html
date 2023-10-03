@@ -1,0 +1,24 @@
+<div class="ion-page" id="main-content">
+    <!-- <app-header-nav title="Map"></app-header-nav> -->
+    <app-menu-button></app-menu-button>
+    <ion-content class="ion-no-padding">
+        <app-openlayer-map withLine="true" mapId="sub-map" mapsize="full-height"></app-openlayer-map>
+        <!-- <app-openlayer-map [mapId]="'trip-' + tripId" mapsize="full-height" [coordinates]="coordinates"
+        withLine="true" [type]="isCurrentPatrol ? 'currentPatrol': 'open'" [withRecenterButton]="isCurrentPatrol"></app-openlayer-map> -->
+    </ion-content>
+    <ion-footer mode="md" [translucent]="true">
+        <ion-fab vertical="bottom" horizontal="center">
+            <ion-fab-button class="start_patrol_button" color="danger" (click)="enabledMapFeature()">
+                <ion-icon name="{{currentPatrol.status ? 'pause-circle' : 'play-circle'}}" size="large"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+    </ion-footer>
+</div>
+
+    <!-- <ion-header class="ion-no-border">
+        <ion-toolbar color="gnprimary">
+            <ion-buttons [routerLink]="'/tabs'" slot="start" fill="clear" color="light">
+                <ion-icon name="chevron-back" size="medium" slot="icon-only"></ion-icon>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header> -->

@@ -1,0 +1,54 @@
+<div class="ion-page" id="main-content">
+
+  <ion-fab vertical="top" horizontal="start">
+    <ion-fab-button (click)="modalDismiss()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-header class="ion-no-border">
+      <ion-toolbar class="toolbar">
+          <ion-title >Fill Details</ion-title>
+      </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-list class="ion-padding">
+      <div class="form-container">
+        <div class="form-label">
+          <ion-label>Watershed</ion-label>
+        </div>
+        <ion-item class="form-item">
+          <ion-select [(ngModel)]="watershed" (ionChange)="onWatershedChange($event)" interface="action-sheet" placeholder="Choose Watershed">
+            <ion-select-option *ngFor="let listWatershed of listOfWatershed" [value]="listWatershed">{{listWatershed}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <div class="form-container">
+        <div class="form-label">
+          <ion-label>Barangay </ion-label>
+        </div>
+        <ion-item class="form-item">
+          <ion-select [(ngModel)]="barangay" (ionChange)="onBarangayChange($event)" interface="action-sheet" placeholder="Choose Barangay">
+            <ion-select-option *ngFor="let listBarangay of listOfBarangay" [value]="listBarangay">{{listBarangay}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <div class="form-container">
+        <div class="form-label">
+          <ion-label>Sitio </ion-label>
+        </div>
+        <ion-item class="form-item">
+          <ion-input [(ngModel)]="sitio" placeholder="Enter sitio"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="form-submit">
+        <ion-button (click)="startPatrol()" expand="block" fill="solid" >
+          Start Patrol
+        </ion-button>
+      </div>
+    </ion-list>
+  </ion-content>
+</div>

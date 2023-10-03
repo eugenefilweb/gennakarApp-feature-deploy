@@ -1,0 +1,29 @@
+<app-header-nav title="Coordinates"></app-header-nav>
+
+<ion-content>
+
+	<ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<ion-list>
+		<ion-item>
+			<ion-label>
+				<h2>
+					<b>TOTAL: {{coordinates.length ? totalCoordinates(): 'No data found'}}</b>
+				</h2>
+			</ion-label>
+		</ion-item>
+
+		<ng-container *ngFor="let coordinate of coordinates.reverse(); let indexOfelement=index;">
+			<ion-item [color]="indexOfelement % 2 == 0 ? 'light':'gntertiary'" lines="none">
+				<ion-avatar slot="start">
+					{{indexOfelement + 1}}
+				</ion-avatar>
+				<ion-label>
+					<h2>{{readableTimestamp(coordinate.timestamp)}}</h2>
+					<p>{{coordinate.lat}} - {{coordinate.lon}}</p>
+				</ion-label>
+			</ion-item>
+		</ng-container>
+	</ion-list>
+</ion-content>

@@ -1,0 +1,31 @@
+<div class="ion-page" id="main-content">
+	<ion-fab vertical="top" horizontal="start">
+		<ion-fab-button (click)="modalDismiss()">
+			<ion-icon name="arrow-back"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+	<ion-header class="ion-no-border">
+			<ion-toolbar class="toolbar">
+					<ion-title >Choose Category</ion-title>
+			</ion-toolbar>
+	</ion-header>
+
+	<ion-content>
+		<div class="formcategory-container">
+			<div class="formcategory-wrapper">
+				<div class="category-container">
+					<div class="category-item" *ngFor="let fauna of faunas">
+						<div class="formcategory-item" (click)="selectFaunaCategory(fauna.id, fauna.label)">
+							<ion-img src="{{ filteredFaunaIcon(fauna.id)?.icon }}"></ion-img>
+							<!-- <img src="{{ filteredFaunaIcon(fauna.id)?.icon }}" alt="{{ fauna.label }}"> -->
+							<div class="label-container">
+								<ion-text class="tagalog" color="gnprimary">{{ fauna.label }}</ion-text>
+								<ion-text class="english" color="gnprimary">{{ fauna.label_eng }}</ion-text>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</div>

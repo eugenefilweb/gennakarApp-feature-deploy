@@ -1,0 +1,173 @@
+<ion-header>
+    <ion-toolbar color="gnprimary">
+        <ion-buttons class="position-absolute" (click)="modalDismiss()" slot="start" fill="clear" color="light">
+            <ion-icon name="chevron-back-outline" slot="icon-only"></ion-icon>
+        </ion-buttons>
+        <ion-segment [(ngModel)]="currentSegment" (ionChange)="segmentChanged($event)">
+            <ion-segment-button value="generalFlora">
+                GENERAl
+            </ion-segment-button>
+            <ion-segment-button value="pictureFlora" >
+                PICTURE
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-no-padding">
+    <ion-grid [ngSwitch]="currentSegment">
+        <div class="flora-form-group" *ngSwitchCase="'generalFlora'">
+            <div class="form-item">
+                <ion-label class="label-input">Common Name</ion-label>
+                <ion-item class="form-item" fill="solid" >
+                    <ion-input [(ngModel)]="common_name" type="text" placeholder="Enter Common Name"></ion-input>
+                </ion-item>
+            </div>
+            <div class="form-item">
+                <ion-label class="label-input">Genus</ion-label>
+                <ion-item class="form-item" fill="solid" >
+                    <ion-input [(ngModel)]="genus" type="text" placeholder="Enter Genus"></ion-input>
+                </ion-item>
+            </div>
+            <div class="form-item">
+                <ion-label class="label-input">Species</ion-label>
+                <ion-item class="form-item" fill="solid" >
+                    <ion-input [(ngModel)]="species" type="text" placeholder="Enter Species"></ion-input>
+                </ion-item>
+            </div>
+            <div class="form-item">
+                <ion-label class="label-input">Sub Species</ion-label>
+                <ion-item class="form-item" fill="solid" >
+                    <ion-input [(ngModel)]="sub_species" type="text" placeholder="Enter Sub Species" ></ion-input>
+                </ion-item>
+            </div>
+            <div class="form-item">
+                <ion-label class="label-input">Varieta and infra name</ion-label>
+                <ion-item class="form-item" fill="solid" >
+                    <ion-input [(ngModel)]="varieta_and_infra_var_name" type="text" placeholder="Enter Varieta and infra name"></ion-input>
+                </ion-item>
+            </div>
+            <div class="form-item">
+                <ion-label class="label-input">Family</ion-label>
+                <ion-item class="form-item" fill="solid" >
+                    <ion-input [(ngModel)]="family" type="text" placeholder="Enter Family" ></ion-input>
+                </ion-item>
+            </div>
+            <div class="form-item">
+                <ion-label class="label-input">Taxonomic Group</ion-label>
+                <ion-item class="form-item" fill="solid" >
+                    <ion-input [(ngModel)]="taxonomic_group" type="text" placeholder="Enter Taxonomic Group" ></ion-input>
+                </ion-item>
+            </div>
+            <div class="form-item">
+                <ion-label class="label-input">Kingdom</ion-label>
+                <ion-item class="form-item" fill="solid" >
+                    <ion-input [(ngModel)]="kingdom" type="text" placeholder="Enter Kingdom"></ion-input>
+                </ion-item>
+            </div>
+            <div class="form-item">
+                <ion-label class="label-input">Barangay</ion-label>
+                <ion-item class="form-item" fill="solid" >
+                    <ion-input [(ngModel)]="barangay" type="text" placeholder="Enter Kingdom"></ion-input>
+                </ion-item>
+            </div>
+            <div class="form-item">
+                <ion-label class="label-input">Sitio</ion-label>
+                <ion-item class="form-item" fill="solid" >
+                    <ion-input [(ngModel)]="sitio" type="text" placeholder="Enter Kingdom"></ion-input>
+                </ion-item>
+            </div>
+            <div class="form-item">
+                <ion-label class="label-input">Description</ion-label>
+                <ion-item class="form-item" fill="solid" >
+                    <ion-textarea rows="8" [(ngModel)]="description"
+                    placeholder="Enter Description" [autoGrow]="true">
+                    </ion-textarea>
+                </ion-item>
+            </div>
+            <ion-button (click)="nagivatePhoto()" expand="block" color="gnprimary" mode="ios">
+                <ion-text>NEXT</ion-text>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+            </ion-button>
+        </div>
+        <div *ngSwitchCase="'pictureFlora'">
+            <app-flora-form-image 
+                title="1) Full Height" 
+                [photos]="fullheight" 
+                [deleteCallback]="deleteImage"
+                [addPhotoCallback]="updatePhotoToGallery" 
+                category="fullheight">
+            </app-flora-form-image>
+
+            <app-flora-form-image 
+                title="2) Immediate Vicinity" 
+                [photos]="immediate_vicinity"
+                [deleteCallback]="deleteImage" 
+                [addPhotoCallback]="updatePhotoToGallery"
+                category="immediate_vicinity">
+            </app-flora-form-image>
+
+            <app-flora-form-image 
+                title="3) Leaves" 
+                [photos]="leaves" 
+                [deleteCallback]="deleteImage"
+                [addPhotoCallback]="updatePhotoToGallery" 
+                category="leaves">
+            </app-flora-form-image>
+
+            <app-flora-form-image 
+                title="4) Fruit" 
+                [photos]="fruit" 
+                [deleteCallback]="deleteImage"
+                [addPhotoCallback]="updatePhotoToGallery" category="fruit">
+            </app-flora-form-image>
+
+            <app-flora-form-image 
+                title="5) Trunk" 
+                [photos]="trunk" 
+                [deleteCallback]="deleteImage"
+                [addPhotoCallback]="updatePhotoToGallery" 
+                category="trunk">
+            </app-flora-form-image>
+
+            <app-flora-form-image 
+                title="6) Roots" 
+                [photos]="roots" 
+                [deleteCallback]="deleteImage"
+                [addPhotoCallback]="updatePhotoToGallery" 
+                category="roots">
+            </app-flora-form-image>
+
+            <app-flora-form-image 
+                title="7) Side view (West/Left)" 
+                [photos]="west_left"
+                [deleteCallback]="deleteImage" 
+                [addPhotoCallback]="updatePhotoToGallery"
+                category="west_left">
+            </app-flora-form-image>
+
+            <app-flora-form-image 
+                title="8) Side view (East/Right)" 
+                [photos]="east_right"
+                [deleteCallback]="deleteImage" 
+                [addPhotoCallback]="updatePhotoToGallery"
+                category="east_right">
+            </app-flora-form-image>
+
+            <ion-button 
+                (click)="updateGeneralForm()" 
+                style="margin-top: 1.5rem" 
+                class="slot-bottom"
+                color="gnprimary" 
+                expand="block" 
+                shape="round"
+            >UPDATE</ion-button>
+        </div>
+    </ion-grid>
+
+    <!-- <ion-grid fixed  trigger="open-modal">
+        <ion-row>
+            <ion-col size="6"></ion-col>
+            <ion-col size="6"></ion-col>
+        </ion-row>
+    </ion-grid> -->
+</ion-content>

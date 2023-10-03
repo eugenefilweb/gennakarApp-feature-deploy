@@ -1,0 +1,24 @@
+<ion-list>
+  <ion-label class="list-wrapper">
+    <div class="list-header">
+      <ion-text class="poppins-bold-1em" color="gnprimary">{{title}}</ion-text>
+      &nbsp;
+      <span><small>({{general.photos_per_category}} pictures)</small></span>
+    </div>
+  </ion-label>
+  <ion-item class="ion-no-padding" lines="none" >
+      <div class="flora-gallery" style="display: flex; overflow: auto;">
+        <div size="6" *ngFor="let photo of photos; let key = index;" [attr.data-index]="key">
+          <ion-img class="flora-item hover-delete" [src]="photoService.base64Path(photo.base64string)"></ion-img>
+          <ion-icon color="light" name="trash-outline" class="trash-delete"
+            (click)="deleteFunction(photo, key)"></ion-icon>
+        </div>
+        <div >
+          <ion-button (click)="updateFunction(category)" fill="clear" class="btn-delete" *ngIf="photos.length < general.photos_per_category">
+            <ion-icon size="large" color="gnprimary" name="camera-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+  </ion-item>
+</ion-list>
+

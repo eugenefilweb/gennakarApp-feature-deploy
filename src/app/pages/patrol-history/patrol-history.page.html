@@ -1,0 +1,122 @@
+<app-header-nav title="My Patrols"></app-header-nav>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+
+	<ion-grid [ngSwitch]="currentSegment">
+		<ion-list *ngSwitchCase="'flora'">
+			<ion-list>
+				<ion-radio-group [(ngModel)]="selectedOption" style="display: flex;justify-content: space-between;">
+					<ion-item>
+						<ion-label style="font-size: 0.8em;">Offline</ion-label>&nbsp;
+						<ion-radio value="pending" (click)="changeOption($event)"></ion-radio>
+					</ion-item>
+
+					<ion-item>
+						<ion-label style="font-size: 0.8em;">For Validation</ion-label>&nbsp;
+						<ion-radio value="for-validation" (click)="changeOption($event)"></ion-radio>
+					</ion-item>
+
+					<ion-item>
+						<ion-label style="font-size: 0.8em;">Validated</ion-label>&nbsp;
+						<ion-radio value="validated" (click)="changeOption($event)"></ion-radio>
+					</ion-item>
+				</ion-radio-group>
+				<ion-progress-bar [type]="'indeterminate'" *ngIf="showProgress"></ion-progress-bar>
+			</ion-list>
+
+			<ion-item *ngIf="message">
+				<ion-label>
+					<h2>{{message}}</h2>
+				</ion-label>
+			</ion-item>
+
+			<div *ngIf="selectedOption == 'pending'" style="paddiing-bottom: 16px">
+				<ion-toolbar>
+					<ion-button (click)="alertSyncFlora()" [color]="offlinePatrols.length ? 'gnprimary': 'medium'" class="floatbtn" [disabled]="!offlinePatrols.length">
+						<ion-icon name="sync-outline" slot="start"></ion-icon>
+						{{offlinePatrols.length ? 'sync pending patrols (' + offlinePatrols.length + ')' : 'No Pending Patrols'}}
+					</ion-button>
+				</ion-toolbar>
+				<ion-card class="patrol-card" >
+					<ion-item color="gntertiary" *ngIf="currentPatrol.syncStatus" button (click)="viewDetails(currentPatrol, true)">
+						<ion-label>
+							<div class="date">{{formatDate(currentPatrol.timestamp,'ll')}}</div>
+							<div class="time">{{formatDate(currentPatrol.timestamp,'hh:mm A')}} - {{formatDate(currentPatrol.lastTimestamp,'hh:mm A')}}</div>
+							<p>
+								Location: {{currentPatrol.sitio?'Sitio '+currentPatrol.sitio+', ':null}}{{currentPatrol.barangay?' Barangay '+currentPatrol.barangay:null}}
+							</p>
+							<p>Watershed: {{currentPatrol.watershed || 'None'}} </p>
+							<p>Flora Encoded: {{floras.length}}</p>
+							<p>Fauna Encoded: {{faunas.length}}</p>
+							<p>Incident Encoded: {{incidents.length}}</p>
+							<p>Distance: {{totalDistance.toFixed(2)}} Meters</p>
+							<p>Travel Hours: {{travelHours(currentPatrol)}}</p>
+							<p>Coordinates: {{coordinates.length}}</p>
+							<p>
+								<ion-badge color="{{currentPatrol.syncStatus == 'Ongoing' ? 'progress': 'warning'}}">{{currentPatrol.syncStatus}}</ion-badge>
+							</p>
+						</ion-label>
+					</ion-item>
+				</ion-card >
+				<ion-card class="patrol-card" *ngFor="let patrol of offlinePatrols.reverse(); let indexOfelement=index;" button
+				(click)="viewDetails(patrol)">
+					<ion-item [color]="indexOfelement % 2 == 0 ? 'light': 'gntertiary'">
+						<ion-label>
+							<!-- {{indexOfelement + 1}} -->
+							<div class="title">Patrol from</div>
+							<div class="date">{{formatDate(patrol.timestamp,'ll')}}</div>
+							<div class="time">{{formatDate(patrol.timestamp,'hh:mm A')}} - {{formatDate(patrol.lastTimestamp,'hh:mm A')}}</div>
+							<p>
+								Location: {{patrol.sitio?'Sitio '+patrol.sitio+', ':null}}{{patrol.barangay?' Barangay '+patrol.barangay:null}}
+							</p>
+							<p>Watershed: {{patrol.watershed || 'None'}} </p>
+							<p>Flora Encoded: {{patrol.floras.length}}</p>
+							<p>Fauna Encoded: {{patrol.faunas.length}}</p>
+							<p>Distance: {{patrol.distance}} Meters</p>
+							<p>Travel Hours: {{formatMilliseconds(patrol.lastTimestamp - patrol.timestamp)}}</p>
+							<p>Coordinates: {{patrol.coordinates.length}}</p>
+							<p>
+								<ion-badge [color]="getBadgeColor(patrol.syncStatus)">{{patrol.syncStatus}}</ion-badge>
+							</p>
+						</ion-label>
+					</ion-item>
+				</ion-card>
+					
+			</div>
+			<div *ngIf="selectedOption == 'for-validation' || selectedOption == 'validated'">
+				<ion-item class="patrol-card" *ngFor="let patrol of livePatrols; let indexOfelement=index;" button
+					(click)="viewLivePatrol(patrol)">
+					<ion-label>
+						<h2> {{indexOfelement + 1}}) <b>{{patrol.tripId}}</b></h2>
+						<p>{{patrol.createdAt}}</p>
+						<p>Watershed: {{patrol.watershed || 'None'}} </p>
+						<p>Flora Encoded: {{patrol.totalTrees}}</p>
+						<p>Fauna Encoded: {{patrol.totalFauna}}</p>
+						<p>Distance: {{patrol.totalDistance}}</p>
+						<p>Travel Hours: {{patrol.travelHours || 0}}</p>
+						<p>Coordinates: {{patrol.totalCoordinates}}</p>
+						<p>
+							<ion-badge color="{{patrol.status == 1 ? 'success': 'primary'}}">{{patrol.statusLabel}}</ion-badge>
+						</p>
+					</ion-label>
+				</ion-item>
+			</div>
+			 
+
+			<ion-infinite-scroll *ngIf="showSwipeLoading()" threshold="10%" position="bottom"
+				(ionInfinite)="loadData($event)">
+				<ion-infinite-scroll-content loadingSpinner="circular" loadingText="Loading more data...">
+				</ion-infinite-scroll-content>
+			</ion-infinite-scroll>
+
+		</ion-list>
+		<ion-list *ngSwitchCase="'fauna'">
+			<ion-item>
+				<ion-label style="text-align: center;">COMING SOON!</ion-label>
+			</ion-item>
+		</ion-list>
+	</ion-grid>
+</ion-content>

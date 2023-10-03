@@ -1,0 +1,40 @@
+<app-header-nav title="Library"></app-header-nav>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-segment [swipeGesture]="true" [(ngModel)]="currentSegment" (ionChange)="segmentChanged($event)"  mode="md">
+        <ion-segment-button value="flora" >
+            <ion-label class="font-Poppins-Bold">FLORA</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="fauna" >
+            <ion-label class="font-Poppins-Bold">FAUNA</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+    <ion-searchbar #mySearchBar placeholder="Search flora" mode="ios" [(ngModel)]="librarySearch"
+        [debounce]="300"></ion-searchbar>
+    <ion-grid [ngSwitch]="currentSegment">
+        <ion-label *ngIf="message" class="text-center"> <h2>{{message}}</h2> </ion-label>
+        <ion-list *ngSwitchCase="'flora'">
+            <ion-item [color]="i % 2 == 0 ? 'gntertiary':'light'" button *ngFor="let item of libraries | filter: librarySearch; let i = index" (click)="libraryView(item)">
+                <ion-avatar slot="start">
+                    <ion-img src="{{mainPhoto(item.tablePhotoUrl)}}" alt="photo" class="image-placeholder"></ion-img>
+                </ion-avatar>
+                <div>
+                    <ion-label> <h2>{{item.common_name || item.species }}</h2> </ion-label>
+                    <ion-label> <p>{{item.family}} also known as {{item.genus}}</p> </ion-label>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll *ngIf="showLoading()" threshold="10%" position="bottom" (ionInfinite)="loadData($event)">
+            <ion-infinite-scroll-content loadingSpinner="circular" loadingText="Loading more data...">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+        <ion-list *ngSwitchCase="'fauna'">
+            <ion-item>
+                <ion-label class="text-center">COMING SOON!</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,83 @@
+    <ion-app>
+        <ion-split-pane when="md" contentId="main-content">
+            <ion-menu side="start" type="push" contentId="main-content" menuId="main-content" >
+                <ion-grid class="menu-default-size" >
+                    <ion-content scroll-y="false">
+                        <div class="header">
+                            <ion-img class="header-img" [src]="logoGawa"></ion-img>
+                            <div class="text-container">
+                                <ion-text color="light"><h1>{{user.firstname}}</h1></ion-text>
+                                <div class="line"></div>
+                                <ion-text color="light"><h1>{{user.lastname}}</h1></ion-text>
+                            </div>
+                        </div>
+                        <div class="menu-container" >
+                            <ion-list class="">
+                                <ion-menu-toggle auto-Hide="false" *ngFor="let sideMenu of sideMenuItem">
+                                    <ion-item  
+                                        lines="none" 
+                                        [routerLink]="sideMenu.url"  
+                                        routerDirection="root"  
+                                        routerLinkActive="active" 
+                                        class="ion-no-border" 
+                                        (click)="sideMenu.title == 'Logout' ? logoutAction(): ''"
+                                    >
+                                        <div class="item-wrapper">
+                                            <ion-icon style="font-size: 16px;" src="{{sideMenu.icon}}" class="custom-icon" ></ion-icon>
+                                            <ion-text class="menu-text" ><h2>{{sideMenu.title}}</h2></ion-text>
+                                        </div>
+                                    </ion-item>
+                                </ion-menu-toggle>  
+                                <ion-menu-toggle auto-Hide="false" *ngIf="user.isDeveloper">
+                                    <ion-item  
+                                        lines="none" 
+                                        routerLink="/tabs/coordinates"  
+                                        routerDirection="root"  
+                                        routerLinkActive="active" 
+                                        class="ion-no-border" 
+                                    >
+                                        <div class="item-wrapper">
+                                            <ion-icon style="font-size: 16px;" name="location" size="location"></ion-icon>
+                                            <ion-text class="menu-text" ><h2>Coordinates</h2></ion-text>
+                                        </div>
+                                    </ion-item>
+                                </ion-menu-toggle>  
+                                <ion-menu-toggle auto-Hide="false" *ngIf="user.isDeveloper">
+                                    <ion-item  
+                                        lines="none" 
+                                        routerLink="/mapbox"  
+                                        routerDirection="root"  
+                                        routerLinkActive="active" 
+                                        class="ion-no-border" 
+                                    >
+                                        <div class="item-wrapper">
+                                            <ion-icon style="font-size: 16px;" name="location" size="location"></ion-icon>
+                                            <ion-text class="menu-text" ><h2>Mapbox</h2></ion-text>
+                                        </div>
+                                    </ion-item>
+                                </ion-menu-toggle>  
+
+                            </ion-list>
+                            <ion-menu-toggle id="logout-btn" auto-Hide="false" >
+                                <ion-item  
+                                    lines="none" 
+                                    routerDirection="root"  
+                                    routerLinkActive="active" 
+                                    class="ion-no-border" 
+                                    (click)="logout.title == 'Logout' ? logoutAction(): ''"
+                                >
+                                    <div class="item-wrapper">
+                                        <ion-icon style="font-size: 16px;" name="{{logout.icon}}" size="medium"></ion-icon>
+                                        <ion-text class="menu-text" ><h2>{{logout.title}}</h2></ion-text>
+                                    </div>
+                                </ion-item>
+                            </ion-menu-toggle> 
+                        </div>
+                        
+                    </ion-content>
+                </ion-grid>
+            </ion-menu>
+            <ion-router-outlet id="main-content" main></ion-router-outlet>
+        </ion-split-pane>
+    </ion-app>
+

@@ -1,0 +1,95 @@
+	<ion-header>
+		<ion-toolbar color="gnprimary">
+			<ion-title mode="ios">{{ label }}</ion-title>
+			<ion-buttons (click)="showLeaveConfirmation()" slot="start" fill="clear" color="light">
+				<ion-icon name="arrow-back" size="medium" slot="icon-only"></ion-icon>
+			</ion-buttons>
+		</ion-toolbar>
+	</ion-header>
+
+	<ion-content class="ion-padding">
+		<div class="incident">
+			<!-- <div class="incident-header">
+				<ion-img
+				class="img-header"
+				src="../../../../assets/env-incident_icon/Illegal Hunting.png"
+				></ion-img>
+				<ion-label>{{label}}</ion-label>
+			</div> -->
+			<ng-container *ngIf="incident_type.length; else no_container">
+				<div class="incident-category">
+
+					<div class="form-container">
+						<div class="form-label">
+						  	<ion-label>Incident Type </ion-label>
+						</div>
+						<ion-item class="form-item">
+							<ion-select 
+								[(ngModel)]="selectedIncidentType" 
+								interface="action-sheet" 
+								placeholder="Select Type of Incident"
+							>
+								<ion-select-option 
+									*ngFor="let incidentType of incident_type" 
+									[value]="incidentType.id"
+								>
+									{{ incidentType.label }}
+								</ion-select-option>
+							</ion-select>
+						</ion-item>
+					</div>
+				</div>
+			</ng-container>
+			<!-- <div class="incident-description">
+				<ion-label>Barangay</ion-label>
+				<ion-item>
+					<ion-input [clearInput]="true" type="text" [(ngModel)]="barangay" placeholder="Enter Barangay"></ion-input>
+				</ion-item>
+			</div>
+			<div class="incident-description">
+				<ion-label>Sitio</ion-label>
+				<ion-item>
+					<ion-input [clearInput]="true" type="text" [(ngModel)]="sitio" placeholder="Enter Sitio"></ion-input>
+
+				</ion-item>
+			</div> -->
+			<div class="incident-description">
+				<ion-label>Description</ion-label>
+				<ion-item>
+				<ion-textarea
+					placeholder="Type something here"
+					[autoGrow]="true"
+					[(ngModel)]="description"
+				>
+				</ion-textarea>
+				</ion-item>
+			</div>
+			<div class="incident-gallery">
+				<ion-label>Photos:</ion-label>
+
+				<div class="gallery-wrapper" >
+					<div class="gallery-container" (click)="takeAndAddPhoto()">
+						<ion-icon class="camera" slot="start" name="camera"></ion-icon>
+					</div>
+					<div size="6"  *ngFor="let incidentPhoto of incidentPhotos; let key = index;">
+						<ion-img [src]="photoService.base64Path(incidentPhoto.base64string)"></ion-img>
+						<ion-icon color="danger" name="close-circle" class="trash-delete" (click)="deletePhoto(key)"></ion-icon>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+
+	<ion-footer class="ion-no-border ion-padding" >
+		<div class="incident-button-group">
+			<div class="camera_btn">
+				<ion-button class="camera" expand="block" fill="solid" shape="round" color="gnprimary" (click)="takeAndAddPhoto()">
+					<ion-icon style="padding: 5px;" slot="icon-only" name="camera" color="light"></ion-icon>
+					<ion-label color="light">Camera</ion-label>
+				</ion-button>
+			</div>
+			<div class="submit_btn">
+				<ion-button [disabled]="incidentPhotos.length >= 1 ? false : true" style="font-family: 'Poppins-SemiBold';" color="medium" expand="block" fill="clear" shape="round" (click)="saveIncidentAndSendRequest()"> Save </ion-button>
+			</div>
+		</div>
+	</ion-footer>

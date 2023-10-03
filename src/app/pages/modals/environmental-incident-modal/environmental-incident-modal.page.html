@@ -1,0 +1,26 @@
+<ion-header class="ion-no-border">
+	<ion-toolbar color="gnprimary">
+		<ion-buttons (click)="hideModal()" slot="start" fill="clear" color="light">
+			<ion-icon name="arrow-back" size="medium" slot="icon-only"></ion-icon>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<div class="formcategory-container">
+		<div class="formcategory-wrapper">
+			<div class="category-container">
+				<div class="category-item" *ngFor="let setting of incidentSetting;">
+					<div class="formcategory-item" (click)="modalViewIncidentForm(setting)">
+						<ion-img src="{{filtedIncidentIcon(setting.id)?.icon}}"></ion-img>
+						<div class="label-container">
+							<ion-text class="tagalog" color="gnprimary">{{ setting.label }}</ion-text>
+							<ion-text class="english" color="gnprimary">{{ setting.label_eng }}</ion-text>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>
+

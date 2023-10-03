@@ -1,0 +1,87 @@
+ion-header {
+    ion-toolbar {
+        padding: 10px;
+        display: flex;
+        font-family: 'Poppins-Regular';
+
+        ion-title {
+            text-align: center;
+            font-family: 'Poppins-Bold';
+            color: var(--ion-color-gnprimary);
+        }
+    }
+}
+
+ion-content {
+    .text-container {
+        padding-top: 16px;
+        ion-text {
+            h1 {
+                color: #004634;
+                font-family: 'Poppins-Regular';
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            h2 {
+                color: #545454;
+                font-family: 'Poppins-Regular';
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .image-container {
+        border-radius: 16px;
+        overflow: auto;
+        margin-top: 30px;
+        ion-img {
+            height: auto;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .status-container {
+        display: flex;
+        justify-content: space-around;
+        padding: 16px;
+        margin-top: 16px;
+
+        .status-text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 25px;
+            span {
+                color: #004634;
+                font-weight: 400;
+                font-family: 'Poppins-Regular';
+                font-size: 35px;
+            }
+
+            p {
+                color: #545454;
+                font-family: 'Poppins-Regular';
+                font-size: 16px;
+                margin: 0;
+            }
+        }
+
+        .line {
+            border-right: 2px solid #AEAEAE;
+        }
+
+    }
+
+    .description-container {
+        padding-top: 16px;
+        p {
+            font-size: 16px;
+            text-align: justify;
+            font-style: normal;
+            font-weight: 400;
+        }
+    }
+}

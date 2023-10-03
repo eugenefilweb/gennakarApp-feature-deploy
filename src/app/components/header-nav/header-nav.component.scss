@@ -1,0 +1,29 @@
+@media only screen and (min-width: 800px) {
+  ion-toolbar {
+    --min-height: 4rem;
+  }
+  ion-title {
+    font-size: 32px;
+  }
+
+  ion-button#stamp {
+    width: 9rem;
+    height: 2.5rem;
+
+    ion-icon.icon {
+      margin-right: 10px;
+      font-size: 22px;
+    }
+
+    ion-text {
+      font-size: 18px;
+    }
+  }
+}
+.user-icon {
+  width: 35px;
+}
+
+.user-icon::part(image) {
+  border-radius: 50px;
+}

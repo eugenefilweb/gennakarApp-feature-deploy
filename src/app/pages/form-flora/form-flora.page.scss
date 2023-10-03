@@ -1,0 +1,92 @@
+.flora-form-group {
+  padding: 1px 18px;
+}
+.list-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-header {
+  display: flex;
+  align-items: center;
+}
+
+.margin-sm5 {
+  margin: 5px 5px 5px 15px;
+}
+.color-blue {
+  color: blue;
+}
+
+ion-list {
+  .flora-gallery {
+    display: flex;
+    margin: 5px;
+  }
+  .clickable {
+    cursor: pointer;
+  }
+}
+.flora-item {
+  display: flex;
+  object-fit: cover;
+  overflow: hidden;
+  margin-bottom: 5px;
+  width: 83px !important;
+  height: 85px !important;
+  border-radius: 13px !important;
+}
+
+margin-top-bottom-sm {
+  margin-bottom: 1.2rem;
+  margin-top: 0.5rem;
+}
+.item-has-focus {
+  --highlight-background: none;
+}
+.form-control-input {
+  width: 100%;
+  background: #ebebeb;
+  border-bottom: 1px solid;
+  margin-top: 0.5rem;
+}
+
+.form-control-textarea {
+  width: 100%;
+  background: #ebebeb;
+}
+
+.label-input {
+  font-size: 1em;
+  font-family: Poppins-semibold;
+  color: #676767;
+}
+.hover-segment-btn {
+  font-family: "Poppins-Regular";
+  font-size: 1em;
+  color: #447766;
+  transition: 1s;
+}
+.hover-segment-btn:hover {
+  font-family: "Poppins-bold";
+  font-size: 1em;
+  color: #004634;
+}
+.form-item {
+  margin-bottom: 1.2rem;
+  margin-top: 0.5rem;
+}
+.btn-from-library {
+  margin-right: 1rem;
+}
+.item-bottom {
+  padding: 0 !important;
+}
+ion-content {
+  scroll-behavior: smooth;
+}
+
+.card-container {
+  border-radius: 18px; 
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}

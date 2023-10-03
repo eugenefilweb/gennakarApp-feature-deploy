@@ -1,0 +1,44 @@
+.swiper-slide-duplicate-active {
+  width: 100px;
+  background-color: red;
+}
+.container-category {
+  padding: 16px;
+  border-radius: 10px;
+  border: 2px solid #004634;
+  background: #e9ede0;
+  width: 30%;
+  .card-container {
+    width: 58px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+  }
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    height: 100%;
+    .icon {
+      color: #004634;
+      text-align: center;
+      font-size: 10px;
+      font-family: "Poppins-Regular";
+      font-weight: 700;
+      width: 40px;
+      height: 65px;
+    }
+    .text-title {
+      color: #004634;
+      text-align: center;
+      font-size: 10px;
+      font-family: "Poppins-Bold";
+      font-weight: 700;
+      line-height: 10px;
+    }
+  }
+}

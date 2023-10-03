@@ -1,0 +1,134 @@
+<div class="ion-page" id="main-content">
+  <!-- <app-header-nav title="Dashboard"></app-header-nav> -->
+  <ion-content >
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <app-menu-button></app-menu-button>
+    <!-- <ion-grid>
+      <ion-row class="row1">
+        <ion-col size="6">
+          <ion-button
+            class="no-shadow border-radius-20px width-10rem height-4"
+            shape="round"
+            expand="full"
+            fill="solid"
+            color="gntertiary"
+            routerLink="/tabs/flora"
+          >
+            <div class="flex-container gap-1rem">
+              <span class="poppins-bold-700 color-gnprimary"
+                >{{treesTrack}}</span
+              >
+              <div class="flex-direction-column align-item-start">
+                <span class="poppins-500-14px color-gnprimary">Trees</span>
+                <span class="poppins-500-14px color-gnprimary">Tracked</span>
+              </div>
+            </div>
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button
+            class="no-shadow border-radius-20px poppins-500-14px width-10rem height-4"
+            shape="round"
+            expand="full"
+            fill="solid"
+            color="gntertiary"
+            routerLink="/tabs/fauna"
+          >
+            <div class="flex-container gap-1rem">
+              <span class="poppins-bold-700 color-gnprimary"
+                >{{animalsTrack}}</span
+              >
+              <div class="flex-direction-column align-item-start">
+                <span class="poppins-500-14px color-gnprimary">Animals</span>
+                <span class="poppins-500-14px color-gnprimary">Tracked</span>
+              </div>
+            </div>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row2">
+        <ion-col>
+          <ion-button
+            class="no-shadow color-gnprimary border-radius-20px width-6rem height-3rem"
+            shape="round"
+            fill="solid"
+            color="gntertiary"
+            routerLink="/tabs/library"
+          >
+            <div class="flex-container gap-05rem">
+              <div>
+                <ion-icon
+                  size="large"
+                  name="book"
+                  style="color: #004634"
+                ></ion-icon>
+              </div>
+              <span class="color-gnprimary poppins-500-14px">Library</span>
+            </div>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row2">
+        <ion-col>
+          <ion-button
+            class="no-shadow color-gnprimary border-radius-20px width-6rem height-3rem"
+            shape="round"
+            fill="solid"
+            color="gntertiary"
+            routerLink="/tabs/patrol-history"
+          >
+            <div class="flex-container gap-05rem">
+              <div>
+                <ion-icon
+                  size="large"
+                  name="flag"
+                  style="color: #004634"
+                ></ion-icon>
+              </div>
+              <span class="color-gnprimary poppins-500-14px">
+                <ion-label>My Patrols</ion-label>
+                &nbsp;
+                <ion-badge color="danger" mode="ios"
+                  >{{ patrols.length ? patrols.length : '' }}</ion-badge
+                >
+              </span>
+            </div>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row> </ion-row>
+      <ion-row class="row3">
+        <ion-col size="12" class="ion-no-padding" routerLink="/tabs/flora">
+          <ion-card class="card-height">
+            <img
+              class="image"
+              src="/assets/images/closeup-shot-beautiful-hawaiian-hibiscus-tuscany.jpg"
+              alt=""
+            />
+            <div class="card-title">Flora</div>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12" class="ion-no-padding" routerLink="/tabs/fauna">
+          <ion-card class="card-height">
+            <span class="overlay"></span>
+            <div class="card-title">Fauna</div>
+            <div class="card-subtitle">Coming Soon!</div>
+            <img
+              color="primary"
+              id="hordbill"
+              class="image"
+              src="/assets/images/great-hornbill.jpg"
+              alt=""
+            />
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+    <app-openlayer-map mapId="main-map" mapsize="full-height"></app-openlayer-map>
+
+
+  </ion-content>
+</div>

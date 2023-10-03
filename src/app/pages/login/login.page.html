@@ -1,0 +1,45 @@
+<ion-content>
+	<ion-img class="background-image" [src]="loginBgImage" alt=""></ion-img>
+	<div class="frame">
+		<div class="header-title">
+			<div class="header-content">
+				<div class="header-img">
+					<ion-img class="img-logo" [src]="mainLogoImage" alt=""></ion-img>
+				</div>
+				<div class="header-detail">
+					<h3 class="header-main-text">
+						Welcome to <span style="color: #91a563">GAWA</span>!
+					</h3>
+				</div>
+			</div>
+			<div class="form">
+				<div class="form-group">
+					<ion-label class="form-label" style="font-weight: bold" color="gnprimary">Username or Email</ion-label>
+					<ion-item class="form-item" fill="outline" color="gnprimary">
+						<ion-input [clearInput]="true" [autofocus]="false" type="text" name="username"
+							[(ngModel)]="postData.username" placeholder="Enter Username or Email"></ion-input>
+						<ion-icon class="icon-person" size="small" slot="start" color="gnprimary" name="person"
+							class="m5"></ion-icon>
+					</ion-item>
+				</div>
+				<div class="form-group" >
+					<ion-label class="form-label" color="gnprimary">Password</ion-label>
+					<ion-item class="form-item" fill="outline">
+						<ion-input [clearOnEdit]="true" autofocus="false" inputmode="numeric" [type]="passwordType"
+							name="password" [(ngModel)]="postData.password" placeholder="Enter Password"></ion-input>
+						<ion-icon class="icon-password" slot="end" [name]="passwordIcon"
+							(click)="toggleShow()"></ion-icon>
+						<ion-icon (click)="toggleShow()" size="small" slot="start" color="gnprimary" name="lock-closed" class="m5"></ion-icon>
+					</ion-item>
+				</div>
+
+				<div class="form-button-container">
+					<ion-button class="submit-btn" size="default" (click)="loginAction()" expand="block"
+						shape="round" color="gnprimary">
+						LOG IN
+					</ion-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>

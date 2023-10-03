@@ -1,0 +1,63 @@
+ion-header {
+    ion-toolbar {
+        padding: 10px;
+        display: flex;
+        font-family: 'Poppins-Regular';
+
+        ion-title {
+            text-align: center;
+            font-family: 'Poppins-Bold';
+            color: var(--ion-color-gnprimary);
+        }
+    }
+}
+
+ion-content {
+    .detail-container {
+
+        .detail-header {
+            .text-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .name {
+                    font-size: 18px;
+                    font-family: 'Poppins-Regular';
+                    font-weight: 600;
+                    color: #004634;
+                }
+                .datetime {
+                    font-size: 14px;
+                    font-family: 'Poppins-Regular';
+                    font-weight: 400;
+                    color: #545454;
+                }
+            }
+            .text-sub {
+                .category {
+                    font-size: 16px;
+                    font-family: 'Poppins-Regular';
+                    font-weight: 400;
+                    color: var(--ion-color-gnprimary);
+                }
+            }
+        }
+
+        .image-container {
+
+        }
+        
+        .detail-image-wrapper {
+            .detail-image {
+                border-radius: 16px;
+                overflow: hidden;
+                margin: 16px 0;
+                ion-img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}

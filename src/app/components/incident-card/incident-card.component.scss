@@ -1,0 +1,83 @@
+ion-list {
+  ion-item-sliding{
+    border-radius: 10px;
+    ion-item {
+      --inner-padding-end: 0px;
+      --padding-start:0px;
+      border: 1px solid #F1F1F1;
+      border-radius: 10px;
+      padding: 16px;
+      background-color: white;
+      .card-container{
+        width: 100%;
+        .card-header {
+          box-shadow: none;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          border-bottom: 1px solid #C0C0C0;
+          padding-bottom: 7px;
+          margin-bottom: 7px;
+          .header-title {
+            .card-subtitle {
+              font-size: 14px;
+              color: #105141;
+              font-family: 'Poppins-Regular';
+              font-weight: 600;
+            }
+            .card-title {
+              font-family: 'Poppins-Regular';
+              font-size: 12px;
+              color: #7C7C7C;
+            }
+          }
+          .subheader-title {
+            display: flex;
+            gap: 12px;
+            .title {
+              ion-text{
+                font-size: 12px;
+                font-family: 'Poppins-Bold';
+              }
+            }
+            .category {
+              border-radius: 6px;
+              background: #004634;
+              padding: 3px;
+              width: 57.565px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              ion-text {
+                font-size: 14px;
+                color: white;
+              }
+            }
+          }
+        }
+        
+        .card-content {
+          font-family: 'Poppins-Regular';
+          font-size: 12px;
+          display: -webkit-box;
+          max-width: 400px;
+          margin: 0 auto;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+    ion-item-options {
+      ion-item-option {
+        .icon-size {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+

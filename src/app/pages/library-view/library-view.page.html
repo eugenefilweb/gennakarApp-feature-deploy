@@ -1,0 +1,74 @@
+<ion-header>
+	<ion-toolbar color="gnprimary">
+		<ion-buttons (click)="modalDismiss()" slot="start">
+			<ion-icon name="arrow-back" size="large"></ion-icon>
+		</ion-buttons>
+		<ion-title>{{common_name || species}}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<swiper [autoplay]="true" [keyboard]="true" [pagination]="true" [scrollbar]="false" [zoom]="true">
+		<ng-template swiperSlide *ngFor="let src of galleryUrl">
+			<ion-img class="image-placeholder" [src]="src" alt="Photo"></ion-img>
+		</ng-template>
+	</swiper>
+	<ion-list>
+		<ion-item>
+			<ion-label>
+				<h2>Common Name</h2>
+			</ion-label>
+			<ion-label slot="end">{{common_name || "N/A"}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>
+				<h2>Residency Status</h2>
+			</ion-label>
+			<ion-label slot="end">{{residency_status || "N/A"}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>
+				<h2>Family</h2>
+			</ion-label>
+			<ion-label slot="end">{{family || "N/A"}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>
+				<h2>Genus</h2>
+			</ion-label>
+			<ion-label slot="end">{{genus || "N/A"}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>
+				<h2>Species</h2>
+			</ion-label>
+			<ion-label slot="end">{{species || "N/A"}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>
+				<h2>Sub Species</h2>
+			</ion-label>
+			<ion-label slot="end">{{sub_species || "N/A"}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>
+				<h2>Taxonomic Group</h2>
+			</ion-label>
+			<ion-label slot="end">{{taxonomic_group || "N/A"}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>
+				<h2>Varieta and Infra var name</h2>
+			</ion-label>
+			<ion-label slot="end">{{varieta_and_infra_var_name || "N/A"}}</ion-label>
+		</ion-item>
+		<ion-item>
+			<ion-label>
+				<h2>Convervation status</h2>
+			</ion-label>
+			<ion-label slot="end">{{conservation_status || "N/A"}}</ion-label>
+		</ion-item>
+		<ion-label class="ion-padding">Distribution</ion-label>
+		<ion-textarea class="ion-padding">{{distribution || "N/A"}}</ion-textarea>
+	</ion-list>
+</ion-content>

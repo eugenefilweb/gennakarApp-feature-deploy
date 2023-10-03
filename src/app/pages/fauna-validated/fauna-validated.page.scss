@@ -1,0 +1,17 @@
+.item{
+    width: 100%;
+
+    .item-container{
+        display: flex; 
+        justify-content: space-between; 
+        width: 100%;
+    }
+    
+    .item-wrapper{
+        display: flex; 
+        justify-content: space-between; 
+        width: 100%;
+    }
+}
+
+

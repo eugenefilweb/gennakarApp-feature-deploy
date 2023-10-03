@@ -1,0 +1,36 @@
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+	<ion-searchbar placeholder="Search Non Validated Fauna" mode="ios" [(ngModel)]="floraValidation" [debounce]="500"
+		(ionChange)="handleChange($event)"></ion-searchbar>
+	<ion-list>
+		<ion-item *ngIf="message">
+			<ion-label>
+				<h2>{{message}}</h2>
+			</ion-label>
+		</ion-item>
+		<ion-item-sliding *ngFor="let item of fauna" button>
+			<!-- (click)="goToValidationViewModal(item)" -->
+			<ion-item button style=" align-items: center; width: 100%;" (click)="goToValidationViewModal(item)">
+				<ion-avatar slot="start">
+					<ion-img [src]="item.tablePhotoUrl" alt="avatar"></ion-img>
+				</ion-avatar>
+				<div class="item" >
+					<div class="item-content" >
+						<div class="item-wrapper" >
+							<!-- {{(item.common_name || item.species || item.barangay) || '-----'}} -->
+							<ion-label> <h2>{{ generateFaunaValidatedName(item.category_id) }} </h2> </ion-label>
+							<ion-label style="text-align: center; margin: 0; padding: 0; font-size: 12px;">{{item.ago}}</ion-label>
+						</div>
+					</div>
+					<ion-label> <p>{{item.description}}</p> </ion-label>
+				</div>
+			</ion-item>
+		</ion-item-sliding>
+		<ion-infinite-scroll *ngIf="showLoading()" threshold="10%" position="bottom" (ionInfinite)="loadData($event)">
+			<ion-infinite-scroll-content loadingSpinner="circular" loadingText="Loading more data...">
+			</ion-infinite-scroll-content>
+		</ion-infinite-scroll>
+	</ion-list>
+</ion-content>

@@ -1,0 +1,123 @@
+
+<ion-content [fullscreen]="true">
+        <div style="background: transparent !important; position: absolute; z-index: 3;">
+            <ion-button class="ion-padding" (click)="modalDismiss()"  expand="block" fill="solid" color="gntertiary">
+                <ion-icon name="arrow-back" size="medium" slot="icon-only" color="dark"></ion-icon>
+            </ion-button>
+        </div>
+    <div >
+        <div *ngSwitchCase="'fullheight'">
+            <app-flora-images-view title="Full Height" [photos]="photoUrls.fullheight"></app-flora-images-view>
+        </div>
+        <div *ngSwitchCase="'immediate_vicinity'">
+            <app-flora-images-view title="Immediate Vicinity" [photos]="photoUrls.immediate_vicinity"></app-flora-images-view>
+        </div>
+        <div *ngSwitchCase="'leaves'">
+            <app-flora-images-view title="Leaves" [photos]="photoUrls.leaves"></app-flora-images-view>
+        </div>
+        <div *ngSwitchCase="'fruit'">
+            <app-flora-images-view title="Fruit" [photos]="photoUrls.fruit"></app-flora-images-view>
+        </div>
+        <div *ngSwitchCase="'roots'">
+            <app-flora-images-view title="Roots" [photos]="photoUrls.roots"></app-flora-images-view>
+        </div>
+        <div *ngSwitchCase="'trunk'">
+            <app-flora-images-view title="Trunk" [photos]="photoUrls.trunk"></app-flora-images-view>
+        </div>
+        <div *ngSwitchCase="'west_left'">
+            <app-flora-images-view title="West Left" [photos]="photoUrls.west_left"></app-flora-images-view>
+        </div>
+        <div *ngSwitchCase="'east_right'">
+            <app-flora-images-view title="East Right" [photos]="photoUrls.east_right"></app-flora-images-view>
+        </div>
+    </div>
+
+    <div class="border-radius-20  ">
+        <ion-list mode="ios">
+            <div style="margin-bottom: 0.75rem;">
+                <ion-text color="gnprimary" style="font-family: 'Poppins-bold'; padding: 0 0 0 16px; font-size: 25px;">
+                    Classification 
+                </ion-text>
+            </div>
+            <ion-item mode="ios" class="item-card" style="margin: 16px;">
+                <div class="flex-item">
+                    <div class="item-wrapper">
+                        <h6 class="font-18">Common Name</h6>
+                        <p class="font-12">{{common_name || "N/A"}}</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item mode="ios" class="item-card" style="margin: 16px;">
+                <div class="flex-item">
+                    <div class="item-wrapper">
+                        <h6 class="font-18">Residency Status</h6>
+                        <p class="font-12">{{residency_status || "N/A"}}</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item mode="ios" class="item-card" style="margin: 16px;">
+                <div class="flex-item">
+                    <div class="item-wrapper">
+                        <h6 class="font-18">Family</h6>
+                        <p class="font-12">{{family || "N/A"}}</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item mode="ios" class="item-card" style="margin: 16px;">
+                <div class="flex-item">
+                    <div class="item-wrapper">
+                        <h6 class="font-18">Genus</h6>
+                        <p class="font-12">{{genus ||"N/A"}}</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item mode="ios" class="item-card" style="margin: 16px;">
+                <div class="flex-item">
+                    <div class="item-wrapper">
+                        <h6 class="font-18">Species</h6>
+                        <p class="font-12">{{species || "N/A"}}</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item mode="ios" class="item-card" style="margin: 16px;">
+                <div class="flex-item">
+                    <div class="item-wrapper">
+                        <h6 class="font-18">Sub Species</h6>
+                        <p class="font-12">{{sub_species || "N/A"}}</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item mode="ios" class="item-card" style="margin: 16px;">
+                <div class="flex-item">
+                    <div class="item-wrapper">
+                        <h6 class="font-18">Taxonomic Group</h6>
+                        <p class="font-12">{{taxonomic_group || "N/A"}}</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item mode="ios" class="item-card" style="margin: 16px;">
+                <div class="flex-item">
+                    <div class="item-wrapper">
+                        <h6 class="font-18">Varieta and Infra var name</h6>
+                        <p class="font-12">{{varieta_and_infra_var_name || "N/A"}}</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item mode="ios" class="item-card" style="margin: 16px;">
+                <div class="flex-item">
+                    <div class="item-wrapper">
+                        <h6 class="font-18">Conservation status</h6>
+                        <p class="font-12">{{conservation_status || "N/A"}}</p>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item mode="ios" class="item-card" style="margin: 16px;">
+                <div class="item-wrapper">
+                    <h6 class="font-18">Distribution</h6>
+                    <p class="font-12">{{distribution || "N/A"}}</p>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+
+</ion-content>

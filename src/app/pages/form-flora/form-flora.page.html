@@ -1,0 +1,94 @@
+<ion-header>
+    <ion-toolbar color="gnprimary">
+        <ion-title style="font-family: poppins-bold;">Add flora</ion-title>
+        <ion-buttons (click)="modalDismiss()" slot="start" fill="clear" color="light">
+            <ion-icon name="chevron-back-outline" slot="icon-only"></ion-icon>
+        </ion-buttons>
+        <!-- <ion-button class="btn-from-library" color="light"  (click)="fromLibrary()">
+            <ion-icon name="search-outline"></ion-icon>
+            From Library
+        </ion-button> -->
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding" #pageTop>
+    <ion-searchbar placeholder="Search From Library" mode="ios" inputmode="decimal" type="decimal" [debounce]="250" (click)="fromLibrary()"></ion-searchbar>
+
+    <ion-card class="card-container" >
+        <app-flora-form-image 
+            title="1) Full Height" 
+            [photos]="fullheight"
+            [deleteCallback]="deletePhoto" 
+            [addPhotoCallback]="addPhotoToGallery"
+            category="fullheight">
+        </app-flora-form-image>
+    </ion-card>
+    <ion-card class="card-container" >
+        <app-flora-form-image 
+            title="2) Immediate Vicinity" 
+            [photos]="immediate_vicinity"
+            [deleteCallback]="deletePhoto" 
+            [addPhotoCallback]="addPhotoToGallery"
+            category="immediate_vicinity">
+        </app-flora-form-image>
+    </ion-card>
+    <ion-card class="card-container" >
+        <app-flora-form-image 
+            title="3) Leaves" 
+            [photos]="leaves" 
+            [deleteCallback]="deletePhoto"
+            [addPhotoCallback]="addPhotoToGallery" 
+            category="leaves">
+        </app-flora-form-image>
+    </ion-card>
+    <ion-card class="card-container" >
+        <app-flora-form-image 
+            title="4) Fruit" 
+            [photos]="fruit" 
+            [deleteCallback]="deletePhoto"
+            [addPhotoCallback]="addPhotoToGallery" 
+            category="fruit">
+        </app-flora-form-image>
+    </ion-card>
+    <ion-card class="card-container" >
+        <app-flora-form-image 
+            title="5) Trunk" 
+            [photos]="trunk" 
+            [deleteCallback]="deletePhoto"
+            [addPhotoCallback]="addPhotoToGallery" 
+            category="trunk">
+        </app-flora-form-image>
+    </ion-card>
+    <ion-card class="card-container" >
+        <app-flora-form-image 
+            title="6) Roots" 
+            [photos]="roots" 
+            [deleteCallback]="deletePhoto"
+            [addPhotoCallback]="addPhotoToGallery" 
+            category="roots">
+        </app-flora-form-image>
+    </ion-card>
+    <ion-card class="card-container" >
+        <app-flora-form-image 
+            title="7) Side view (West/Left)" 
+            [photos]="west_left"
+            [deleteCallback]="deletePhoto" 
+            [addPhotoCallback]="addPhotoToGallery"
+            category="west_left">
+        </app-flora-form-image>
+    </ion-card>
+    <ion-card class="card-container" >
+        <app-flora-form-image 
+            title="8) Side view (East/Right)" 
+            [photos]="east_right"
+            [deleteCallback]="deletePhoto" 
+            [addPhotoCallback]="addPhotoToGallery"
+            category="east_right">
+        </app-flora-form-image>
+    </ion-card>
+
+    <ion-button (click)="submitGeneralForm()" style="margin-top: 1.5rem" class="slot-bottom" color="gnprimary"
+        expand="block" shape="round" mode="ios">
+        SAVE
+    </ion-button>
+</ion-content>

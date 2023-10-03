@@ -1,0 +1,17 @@
+<!-- <ion-fab id="fab" slot="fixed" vertical="bottom" horizontal="end" > -->
+<ion-fab id="fab" slot="fixed" vertical="bottom" horizontal="end" *ngIf="current_patrol.status">
+  <ion-fab-button color="gnprimary">
+    <ion-icon mode="md" name="chevron-up-circle"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button #box mode="md" (click)="addForm('faunas')" size="small" color="gnprimary">
+      <ion-icon src="../../../assets/icon/Sidebar Icons/SVG/Bird.svg" size="medium" color="gntertiary"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button #box mode="md" (click)="addForm('floras')" size="small" color="gnprimary">
+      <ion-icon src="../../../assets/icon/Sidebar Icons/SVG/Flora.svg" size="medium" color="gntertiary"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button #box mode="md" (click)="addForm('incident')" size="small" color="gnprimary">
+      <ion-icon src="../../../assets/icon/Sidebar Icons/SVG/Incident-Report.svg" size="medium" color="gntertiary"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>

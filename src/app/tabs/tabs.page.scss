@@ -1,0 +1,99 @@
+// ion-tabs{
+// 	ion-fab {
+// 		margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
+//         position: absolute;
+//         bottom: 19px;
+// 		ion-fab-button {
+// 			--box-shadow: none;
+// 		}
+// 	}
+// 	ion-tab-bar {
+// 		--border: 0;
+// 		--background: transparent;
+// 		position: absolute;
+// 		bottom: 0;
+// 		left:0; right: 0;
+// 		width: 100%;
+
+// 		&:after{
+// 			content: " ";
+// 			width: 100%;
+// 			bottom: 0;
+// 			background: var(--ion-color-light);
+// 			height: env(safe-area-inset-bottom);
+// 			position: absolute;
+// 		}
+// 		ion-tab-button {
+// 			--background: var(--ion-color-gnprimary);
+// 			--color-selected: var(--ion-color-gntertiary) !important;
+// 		}
+// 		ion-tab-button.comments {
+// 			margin-right: 0px;
+// 			border-top-right-radius: 10px;
+// 		}
+// 		ion-tab-button.notifs {
+// 			margin-left: 0px;
+// 			border-top-left-radius: 10px;
+// 		}
+	
+// 		svg {    
+// 			width: 72px;
+// 			margin-top: 19px;
+// 			path{
+// 				fill:  var(--ion-color-gnprimary);
+// 			}
+// 		}
+// 	}
+// }
+
+// ion-tab-bar {
+    // position: relative;
+    // border-radius: 13px 13px 0px 0px;
+    // width: 100%;
+    // margin: 0 auto;
+// }
+ion-tabs { 
+	contain: none; 
+	ion-fab {
+		position: absolute;
+		bottom: 6%;
+		ion-fab-button {
+			--box-shadow: none;
+		}
+	}
+
+	ion-tab-bar {
+		--background: var(--ion-color-gnprimary);
+		position: absolute;
+		bottom: 0;
+		border-radius: 16px;
+		width: 92%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 999;
+		gap: 2rem;
+		.route-btn {	
+			--color: var(--ion-color-medium);
+			--color-selected: var(--ion-color-gntertiary) !important;
+				&::before {
+				background-color: transparent;
+				display: block;
+				content: " ";
+				margin: 0 auto;
+				width: 35%;
+				height: 2px;
+				transition: .5s;
+			}
+			
+			&.tab-selected::before {
+				background-color: var(--ion-color-gntertiary);
+				color: var(--ion-color-gnsecondary);
+			}
+		}
+		
+	}
+}
+
+.font-poppins-regular{
+    font-family: 'Poppins-regular';
+}

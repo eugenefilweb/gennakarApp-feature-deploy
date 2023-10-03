@@ -1,0 +1,71 @@
+<div class="ion-page" id="main-content">
+
+  <ion-fab vertical="top" horizontal="start">
+    <ion-fab-button (click)="showLeaveConfirmation()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-header class="ion-no-border">
+      <ion-toolbar class="toolbar">
+        <ion-title >{{ category_name }}</ion-title>
+      </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <div class="formcapture-container">
+
+
+			<div class="incident-description">
+				<ion-label>Description</ion-label>
+				<ion-item>
+				<ion-textarea
+					placeholder="Type something here"
+					[autoGrow]="true"
+					[(ngModel)]="description"
+				>
+				</ion-textarea>
+				</ion-item>
+			</div>
+      
+      <ion-text class="text-title">
+        <h1>Photos </h1>
+        <span>( Atleast 3 )</span>
+      </ion-text>
+
+      <div class="capture-button-container" >
+        <div class="capture-box" (click)="addNewPhoto()">
+          <ion-icon slot="start" name="camera"></ion-icon>
+        </div>
+      </div>
+
+      <!-- <div class="detail-image-wrapper" *ngFor="let photo of photos;  let key = index" [attr.data-index]="key">
+        <div class="detail-image">
+          <ion-img [src]="base64Path(photo.base64string)"></ion-img>
+        </div>
+        <ion-fab-button class="close-btn" size="small" color="light" (click)="deletePhotoAtIndex(key)">
+          <ion-icon name="close" color="danger"></ion-icon>
+        </ion-fab-button>
+      </div> -->
+
+      <div class="gallery-wrapper" >
+        <div size="6" *ngFor="let photo of photos;  let key = index" [attr.data-index]="key">
+          <ion-img [src]="base64Path(photo.base64string)"></ion-img>
+          <ion-icon color="danger" name="close-circle" class="trash-delete" (click)="deletePhotoAtIndex(key)"></ion-icon>
+        </div>
+      </div>
+
+    </div>
+  </ion-content>
+
+  <ion-footer class="ion-no-border">
+    <ion-toolbar>
+      <ion-row justify-content-center>
+        <ion-col size="12" size-md="8">
+          <ion-button [disabled]="photos.length >= 3 ? false : true" expand="full" color="gnprimary" (click)="saveFlora()">
+            Submit
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-footer>
+</div>

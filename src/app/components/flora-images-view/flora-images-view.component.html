@@ -1,0 +1,16 @@
+<div>
+  <ng-container *ngIf="photos.length; else no_photo">
+    <swiper [config]="swiperConfig" class="category">
+      <ng-template swiperSlide  *ngFor="let photo of photos">
+        <div class="swiper-image">
+          <img class="image-card image-placeholder" src="{{photo}}">
+        </div>
+      </ng-template>
+    </swiper>
+  </ng-container>
+  <ng-template #no_photo>
+    <div class="swiper-image">
+      <img class="image-card image-placeholder ion-no-padding">
+    </div>
+  </ng-template>
+</div>
